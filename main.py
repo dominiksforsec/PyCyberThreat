@@ -2,6 +2,7 @@ from taxii2client.v20 import Server, Collection
 from stix2 import TAXIICollectionSource, Filter
 import urllib3
 
+#band-aid might be harder to do because of Stormshield MITM-ing connection so I'd need to configure app to trust this cert
 urllib3.disable_warnings() #band aid to avoid warning spam in the output for as long as TLS band-aid exists
 #assigns server internet locations to variables
 TAXII_mitre_srv = Server("https://cti-taxii.mitre.org/taxii/", user = 'invalid', password = 'fixme', verify = False) #band-aid; need to implement proper TLS for production version
